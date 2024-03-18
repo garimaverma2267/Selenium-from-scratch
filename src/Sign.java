@@ -21,7 +21,7 @@ public class Sign {
 	}
 	public void invokeBrowser() {
 		driver.get("https://pba1-292270-react.b292270.dev.eastus.az.svc.builder.cafe/");
-//		System.out.println(driver.getTitle());
+		System.out.println(driver.getTitle());
 		driver.getCurrentUrl();	
 		signinBlock();	
 		
