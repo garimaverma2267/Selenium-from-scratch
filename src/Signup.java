@@ -18,7 +18,7 @@ public class Signup {
 		driver.findElement(By.cssSelector("[name='password']")).sendKeys("Testing12");
 		driver.findElement(By.cssSelector("[name='cpassword']")).sendKeys("Testing12");
 	    WebElement dropdown = driver.findElement(By.id("mui-component-select-country"));
-	    dropdown.click();
+	   
 	    
 	   
 	}
