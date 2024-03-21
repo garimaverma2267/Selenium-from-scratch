@@ -1,0 +1,28 @@
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - br1  # Change this to match your repository's main branch
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'  # Change this to your desired Java version
+
+    - name: Download Selenium Server
+      run: |
+        Invoke-WebRequest -Uri "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar" -OutFile "selenium-server-standalone.jar"
+
+    - name: Run Selenium tests
+      run: |
+        java -jar selenium-server-standalone.jar -role hub &
+        java -jar selenium-server-standalone.jar -role node -hub http://localhost:4444/grid/register -browser "browserName=chrome,version=latest,platform=WINDOWS"
