@@ -3,7 +3,7 @@ name: Selenium Tests
 on:
   push:
     branches:
-      - br1  # Change this to match your repository's main branch
+      - main
 
 jobs:
   test:
@@ -16,7 +16,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        java-version: '11'  # Change this to your desired Java version
+        java-version: '11'
+        distribution: 'adopt'
 
     - name: Download Selenium Server
       run: |
